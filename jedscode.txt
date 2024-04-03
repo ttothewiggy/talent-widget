@@ -1,0 +1,173 @@
+<body>
+  <style>
+    body {
+      background-color: black;
+      position: relative;
+    }
+  
+    #grid-wrapper {
+      background-color: white;
+      padding: 65px 20px; /* Increased vertical padding, decreased horizontal padding */
+      border-radius: 20px; /* Increased border-radius */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin: 20px auto 50px; /* top, horizontal, bottom */
+      width: 50vw;
+      height: 50vw;
+      position: relative;
+      margin-top: 100px;
+    }
+  
+    #grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+  
+    .grid-tile {
+      background-color: rgb(195, 214, 46);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 15vw;
+      height: 15vw;
+    }
+  
+    .arrow-buttons {
+      display: flex;
+      justify-content: flex-end; /* Align arrows to the right */
+      flex-direction: row;
+      width: 100%; /* Ensure arrow buttons take full width */
+      margin-right: 10px; /* Add margin to the right of the arrow buttons */
+    }
+  
+    .fa-solid.fa-arrow-left,
+    .fa-solid.fa-arrow-right {
+      color: 56534F;
+      font-size: 1.5em;
+      margin-right: 20px; /* Add margin between the arrows */
+      border: 2px solid black; /* Border around the arrows */
+      border-radius: 50%; /* Make the border circular */
+      padding: 10px; /* Adjust padding inside the border */
+      border-width: 4px;
+      border-color: 56534F;
+      background-color: C4D62D;
+      cursor: pointer;
+    }
+ 
+    .fa-solid.fa-arrow-left {
+      background-color: BDC481;
+    }
+    
+ 
+    .page-text {
+      bottom: 10px; 
+      left: 10px;
+      font-style: italic;
+      font-family: 'Proxima Nova', monospace, 'Courier New';
+      display: flex;
+      justify-content: flex-start; 
+      flex-direction: column;
+      position: absolute;
+      margin-left: 40px;
+      margin-bottom: 40px;
+    }
+ 
+    .filter-box {
+      position: fixed;
+      top: 30px; 
+      right: 23.5%; /* Tweak percentage to fine-tune */
+      display: flex;
+      align-items: right;
+      background-color: 435024;
+      border-radius: 5px;
+      padding: 10px;
+    }
+ 
+    .filter-container {
+      position: relative; 
+      top: 0;  
+      max-width: 200px; /* Set a maximum width */
+      margin: 0 auto; /* Center horizontally */
+    }
+ 
+    .filter-box input[type="text"] {
+      border: none;
+      background-color: transparent !important; /* Use !important cautiously */
+      -webkit-tap-highlight-color: transparent; 
+      outline: none;  /* Removes default focus outline */
+      width: 100%;
+      font-size: 18px;
+      font-family: 'Proxima Nova', monospace, 'Courier New';
+      color: white;
+    }
+ 
+    /* Media Queries */
+    @media (max-width: 768px) { /* Example breakpoint for tablets */
+        .filter-box {
+            right: 15%; /* Adjust positioning if needed on smaller screens */ 
+        }
+    }
+ 
+    @media (max-width: 480px) { /* Example breakpoint for phones */
+        .filter-container {
+            max-width: 300px; 
+        }
+        .filter-box {
+            right: 10%;
+            width: 90%; 
+        }
+    }
+ 
+    .filter-box input[type="text"]::-webkit-input-placeholder { color: white; } 
+    .filter-box input[type="text"]::-moz-placeholder { color: white; }  
+    .filter-box input[type="text"]:-ms-input-placeholder { color: white; }  
+    .filter-box input[type="text"]::-ms-input-placeholder { color: white; } 
+    .filter-box input[type="text"]::placeholder { color: white; } 
+ 
+    .filter-box .fa-caret-down {
+      margin-left: -20px;  
+      color: white;   
+    }
+  </style>
+  
+  <div class="filter-container"> 
+    <div class="filter-box">
+      <input type="text" placeholder="Filter Location">
+      <i class="fa-solid fa-caret-down"></i> 
+    </div>
+  </div>
+ 
+  <div id="grid-wrapper">
+    <div id="grid-container">
+      <div class="grid-tile"></div>
+      <div class="grid-tile"></div>
+      <div class="grid-tile"></div>
+      <div class="grid-tile"></div>
+      <div class="grid-tile"></div>
+      <div class="grid-tile"></div>
+      <div class="grid-tile"></div>
+      <div class="grid-tile"></div>
+      <div class="grid-tile"></div>
+    </div>      
+ 
+    <div class="arrow-buttons">
+      <i class="fa-solid fa-arrow-left"></i>
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+    <div class="page-text">
+      <span style="font-style: italic;">Showing page 1 of 2</span>
+    </div>
+  </div>
+ 
+  <script src="https://kit.fontawesome.com/e9bc136ded.js" crossorigin="anonymous"></script>
+</body>
+ 
